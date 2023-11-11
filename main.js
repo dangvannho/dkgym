@@ -8,15 +8,15 @@ document.getElementById("dkForm").addEventListener("submit", function (event) {
   const age = parseFloat(ageInput.value, 10);
   const weight = parseFloat(weightInput.value);
 
-  if (isNaN(age) || !Number.isInteger(age) || isNaN(weight)) {
+  if (!Number.isInteger(age) || isNaN(weight) || age < 0 || weight < 0) {
     resultElement.innerText = "Nhập sai";
     return;
   }
 
   if (ktraAge(age) && ktraWeight(weight)) {
-    resultElement.innerText = "Đăng ký thành công !";
+    resultElement.innerText = "Đạt yêu cầu";
   } else {
-    resultElement.innerText = "Đăng ký không thành công ! ";
+    resultElement.innerText = "Không đạt yêu cầu";
   }
 });
 
